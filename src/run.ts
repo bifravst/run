@@ -13,9 +13,9 @@ const run = async ({
 	input?: string
 	cwd?: string
 	log?: {
-		debug?: (...message: any[]) => void
-		stdout?: (...message: any[]) => void
-		stderr?: (...message: any[]) => void
+		debug?: (...message: string[]) => void
+		stdout?: (data: Buffer) => void
+		stderr?: (data: Buffer) => void
 	}
 	onError?: (code: number) => void
 }): Promise<string> =>
