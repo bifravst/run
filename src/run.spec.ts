@@ -76,4 +76,12 @@ void describe('run()', () => {
 		})
 		assert.equal(log.mock.calls[0]?.arguments[0].toString(), 'test')
 	})
+
+	void it('can be launched in a different working directory', async () => {
+		await run({
+			command: 'npx',
+			args: ['tsx', 'stderr.ts'],
+			cwd: 'src/test',
+		})
+	})
 })

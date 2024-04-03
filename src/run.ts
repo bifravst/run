@@ -6,10 +6,12 @@ const run = async ({
 	args,
 	input,
 	log,
+	cwd,
 }: {
 	command: string
 	args?: string[]
 	input?: string
+	cwd?: string
 	log?: {
 		debug?: (...message: any[]) => void
 		stdout?: (...message: any[]) => void
@@ -19,7 +21,7 @@ const run = async ({
 }): Promise<string> =>
 	new Promise((resolve, reject) => {
 		log?.debug?.(`${command} ${args?.join(' ')}`)
-		const p = spawn(command, args)
+		const p = spawn(command, args, { cwd })
 		const result = [] as string[]
 		const errors = [] as string[]
 		if (input !== undefined) {
