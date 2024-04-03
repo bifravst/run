@@ -84,4 +84,15 @@ void describe('run()', () => {
 			cwd: 'src/test',
 		})
 	})
+
+	void it('can be passed environment variables', async () => {
+		const res = await run({
+			command: '/bin/bash',
+			args: ['-c', 'echo $FOO'],
+			env: {
+				FOO: 'bar',
+			},
+		})
+		assert.equal(res, `bar${os.EOL}`)
+	})
 })
