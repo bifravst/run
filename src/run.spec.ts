@@ -1,7 +1,7 @@
-import { describe, it, mock } from 'node:test'
-import run from './run.js'
 import assert from 'node:assert/strict'
 import os from 'node:os'
+import { describe, it, mock } from 'node:test'
+import run from './run.js'
 
 void describe('run()', () => {
 	void it('should run a command and return the output', async () => {
