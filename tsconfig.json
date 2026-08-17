@@ -17,6 +17,9 @@
     "noUnusedLocals": true,
     "noEmit": true,
     "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "asset-tracker-lwm2m": ["index.d.ts"]

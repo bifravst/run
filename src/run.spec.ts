@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import os from 'node:os'
 import { describe, it, mock } from 'node:test'
-import run from './run.js'
+import run from './run.ts'
 
 void describe('run()', () => {
 	void it('should run a command and return the output', async () => {
@@ -56,8 +56,12 @@ void describe('run()', () => {
 	void it('should log the errors', async () => {
 		const error = mock.fn()
 		await run({
-			command: 'npx',
-			args: ['tsx', 'src/test/stderr.ts'],
+			command: 'node',
+			args: [
+				'--experimental-strip-types',
+				'--no-warnings',
+				'src/test/stderr.ts',
+			],
 			log: {
 				stderr: error,
 			},
@@ -79,8 +83,8 @@ void describe('run()', () => {
 
 	void it('can be launched in a different working directory', async () => {
 		await run({
-			command: 'npx',
-			args: ['tsx', 'stderr.ts'],
+			command: 'node',
+			args: ['--experimental-strip-types', '--no-warnings', 'stderr.ts'],
 			cwd: 'src/test',
 		})
 	})
