@@ -20,9 +20,7 @@
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
     "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "asset-tracker-lwm2m": ["index.d.ts"]
-    }
+    "rootDir": ".",
+    "types": ["node"]
   }
 }
