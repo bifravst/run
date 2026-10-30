@@ -12,7 +12,7 @@ env:
 
 jobs:
   tests-matrix:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
 
     strategy:
       matrix:
@@ -43,7 +43,7 @@ jobs:
         run: npm test
 
   tests:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
 
     needs: [tests-matrix]
 
@@ -58,7 +58,7 @@ jobs:
         run: test "$RESULT" = "success"
 
   release:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
 
     needs: [tests]
 
